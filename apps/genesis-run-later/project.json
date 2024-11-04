@@ -1,0 +1,26 @@
+{
+  "name": "genesis-run-later",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/genesis-run-later/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "genesis-run-later:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "genesis-run-later:build:development"
+        },
+        "production": {
+          "buildTarget": "genesis-run-later:build:production"
+        }
+      }
+    }
+  }
+}

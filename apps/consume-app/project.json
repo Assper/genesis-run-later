@@ -1,0 +1,26 @@
+{
+  "name": "consume-app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/consume-app/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "consume-app:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "consume-app:build:development"
+        },
+        "production": {
+          "buildTarget": "consume-app:build:production"
+        }
+      }
+    }
+  }
+}
